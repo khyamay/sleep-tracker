@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model SleepEntry {
+  id             Int      @id @default(autoincrement())
+  name           String
+  gender         String
+  sleepDuration  Int
+  entryDate      DateTime
+
+  @@map("sleep_entries")
+}
